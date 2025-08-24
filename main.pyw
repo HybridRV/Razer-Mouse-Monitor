@@ -64,7 +64,7 @@ def get_icon_for_percent(percent):
     elif percent >= 50:
         return ICONS["yellow"]
     elif percent >= 25:
-        return ICONS["orange"]
+        return ICONS["brown"]
     else:
         return ICONS["red"]
 
@@ -97,17 +97,17 @@ def main():
         img = Image.open(path).convert("RGBA").resize((16, 16), Image.LANCZOS)
         ICONS[key] = img
 
-    # Initial icon
-    initial_icon = get_icon_for_percent(0)
-    icon = pystray.Icon("BatteryMonitor", initial_icon, "Battery Monitor")
-
-    # Initial battery read
+    # Get latest battery first
     status = get_latest_battery()
     if status:
         battery_status.update(status)
         percent = battery_status['percent'] if isinstance(battery_status['percent'], int) else 0
-        icon.icon = get_icon_for_percent(percent)
-        icon.title = f"Battery: {battery_status['percent']}% ({battery_status['state']})"
+    else:
+        percent = 0
+
+    # Initial icon based on latest battery
+    initial_icon = get_icon_for_percent(percent)
+    icon = pystray.Icon("BatteryMonitor", initial_icon, f"Battery: {percent}% ({battery_status['state']})")
 
     # Start log tailing in background
     thread = threading.Thread(target=tail_battery_log, args=(icon,), daemon=True)
@@ -115,6 +115,7 @@ def main():
 
     # Run tray icon (blocks)
     icon.run()
+
 
 if __name__ == "__main__":
     main()
