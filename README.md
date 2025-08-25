@@ -19,8 +19,8 @@ A lightweight Python tray application that monitors your Razer mouse battery in 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/repo-name.git
-   cd repo-name
+   git clone https://github.com/MDMason92/Razer-Mouse-Monitor.git
+   cd Razer-Mouse-Monitor
    ```
 2. Install dependencies:
 
@@ -32,13 +32,24 @@ A lightweight Python tray application that monitors your Razer mouse battery in 
 
 ## Usage
 
-Run the battery monitor script:
+1. Run the battery monitor script:
+`python battery_monitor.pyw`
 
-```bash
-python battery_monitor.py
-```
-- The tray icon will update based on your mouse battery level.
-- Hover over the icon to see the battery percentage and state.
+2. The tray icon will appear and update based on your mouse battery level.
+
+3. Hover over the tray icon to see:
+   - Device name (e.g., Mouse)  
+   - Battery percentage  
+   - Charging state
+
+4. Right-click the tray icon to access the menu:
+   - Run on Startup – toggle automatic launch at Windows login  
+   - Restart – restart the tray app  
+   - Quit – close the tray app completely
+
+5. The Run on Startup toggle creates or removes a shortcut in the Windows Startup folder automatically, so no manual setup is required.
+
+---
 
 ## Icon Customization
 
