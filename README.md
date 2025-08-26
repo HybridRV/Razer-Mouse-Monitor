@@ -56,6 +56,16 @@ A lightweight Python tray application that monitors your Razer mouse battery in 
 - Icons are located in `battery_icons_colored/`.
 - You can replace them with your own PNGs, keeping the same filenames for proper functionality.
 
+
+## Planned Features
+- Low battery notifications (popup or sound alert)
+- Configurable thresholds for icon colors
+- Improved charging icons and animations
+- Multi-device support (for multiple Razer peripherals)
+- Battery history logging
+- Battery drain estimate
+
+
 ## License
 
 [MIT License](LICENSE)
